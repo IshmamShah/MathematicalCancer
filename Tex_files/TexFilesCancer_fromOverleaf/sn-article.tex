@@ -1,0 +1,682 @@
+%Version 2.1 April 2023
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+\documentclass[lineno,sn-basic, Numbered]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%======================================================%%
+%% to compile with pdflatex/xelatex use pdflatex option %%
+%%======================================================%%
+
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-vancouver.bst, sn-chicago.bst, sn-mathphys.bst. %  
+ 
+%%\documentclass[sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+% \documentclass[sn-mathphys,Numbered]{sn-jnl}% Math and Physical Sciences Reference Style
+%%\documentclass[sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[sn-vancouver,Numbered]{sn-jnl}% Vancouver Reference Style
+%%\documentclass[sn-apa]{sn-jnl}% APA Reference Style 
+%%\documentclass[sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+%%\documentclass[default]{sn-jnl}% Default
+%%\documentclass[default,iicol]{sn-jnl}% Default with double column layout
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+
+\usepackage{changepage}
+\usepackage{geometry}
+\usepackage{tabularx} % Allows for table columns to stretch to fill the width
+\usepackage{booktabs} % For better-looking tables
+\usepackage{ltablex}  % Combines tabularx and longtable
+\usepackage{tabularx} % For stretchable X columns
+\usepackage{booktabs} % For professional looking tables
+\usepackage{makecell} % For line breaks within table cells
+\renewcommand\theadfont{\bfseries} % Bold font for table headers
+\renewcommand\theadalign{bc} % Center and bottom align in headers
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs} % For better table rules
+\usepackage{adjustbox} % For resizing the table
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%\jyear{2021}%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+\geometry{margin=1in}
+
+\begin{document}
+
+\title[Article Title]{Mathematical bridge between epidemiological and molecular data on cancer and beyond }
+
+%%=============================================================%%
+%% Prefix	-> \pfx{Dr}
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% NatureName	-> \tanm{Poet Laureate} -> Title after name
+%% Degrees	-> \dgr{MSc, PhD}
+%% \author*[1,2]{\pfx{Dr} \fnm{Joergen W.} \spfx{van der} \sur{Ploeg} \sfx{IV} \tanm{Poet Laureate} 
+%%                 \dgr{MSc, PhD}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author*[1]{\fnm{Saumitra} \sur{Chakravarty}}\email{dr.saumitra@bsmmu.edu.bd}
+
+\author[2]{\fnm{Khandker Aftarul} \sur{Islam}}\email{aftarulislam@gmail.com}
+\equalcont{These authors contributed equally to this work.}
+
+\author[3]{\fnm{Shah Ishmam} \sur{Mohtashim}}\email{smohtash@purdue.edu}
+\equalcont{These authors contributed equally to this work.}
+
+\affil*[1]{\orgdiv{Department of Pathology}, \orgname{Bangabandhu Sheikh Mujib Medical University}, \orgaddress{\street{Shahbagh}, \city{Dhaka}, \postcode{1000}, \country{Bangladesh}}}
+
+\affil[2]{\orgdiv{Department of Computer Science and Engineering}, \orgname{Bangladesh University of Engineering and Technology}, \orgaddress{ \city{Dhaka}, \postcode{1000}, \country{Bangladesh}}}
+
+\affil[3]{\orgdiv{Department of Chemistry}, \orgname{Purdue University}, \orgaddress{ \city{West Lafayette}, \postcode{47907}, \state{Indiana}, \country{USA}}}
+
+%%==================================%%
+%% sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{Mathematical models of cancer growth have been subject of research for many years. At least six different mathematical models and their countless variations and combinations have been published till date in scientific literature that reasonably explains epidemiological prediction of multi-step carcinogenesis. Each one deals with a particular set of problems at a given organizational level ranging from populations to genes. None of the articles have incorporated all the types of cancers. Any of the models adopted in those articles so far does not account for both epidemiological and molecular levels of carcinogenesis. In other words, those models are used in ‘specialized’ ways to focus on specific attributes of cancer.  Therefore, our work aims at the derivation of a mathematical model consisting of a small set of equations that reasonably explains epidemiological prediction of multi-step carcinogenesis. We have come up with a mathematically rigorous system to derive those equations that satisfies the basic assumptions of both epidemiology and molecular biology without having to incorporate arbitrary numerical coefficients or constants devoid of any causal explanation just to fit the empirical data. After satisfactorily generalizing all the epidemiological and molecular data, we attempted to apply the model for non-neoplastic conditions satisfying the set of assumptions mathematically equivalent to multi-step carcinogenesis. The aim of this treatise is not only to provide some novel insight into mathematical modeling of malignant transformation, but also to revive the classical tools we already have at our disposal to pave the way towards novel insight into integrated approach in cancer research. }
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{Mathematical modelling, epidemiology, cancer}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+\maketitle
+
+\section{Introduction}\label{sec1}
+
+We have built our derivation of the system of equations on the basis of the classical `log-log linear' models proposed by Armitage \cite{armitage1954age}, elaborated by Burch and used by Knudson \cite{knudson1971mutation} \cite{knudson1981mutation} to formulate his famous `two-hit hypothesis'. \cite{moolgavkar1979twoevent} \cite{luebeck1990twoevent} \cite{barnabas2006epidemiology} After meticulously examining the possible interpretations of that model for each of the quantities within the equations, we have come up with a mathematically rigorous system to derive those equations that satisfies the basic assumptions of both epidemiology \cite{altrock2015mathematics} and molecular biology without having to incorporate arbitrary numerical coefficients or constants devoid of any causal explanation just to fit the empirical data. Our system of equations is therefore entirely algebraic. Then we developed variations of the log-log linear model that addresses the conditions posed by selective growth advantage/disadvantage and variable mutation/epimutation rates at different age groups. The developed model is based on some assumptions which are listed as follows:
+
+\subsection*{Assumptions}
+Unless otherwise specified, following assumptions are held throughout the article:
+\begin{enumerate}
+\item Each type of cancer is the outcome of a series of discrete irreversible rate-limiting events, number of such events is denoted as `r'.
+\item The individual rate-limiting events have very low probability that allows most people to live up to typical average human lifespan without ever developing any cancer.
+\item Sequence of such rate-limiting events for a given cancer is unique, although the components of the sequence and the order may vary for different cancers in different individuals.
+\item All of the rate-limiting events for a given cancer have to occur in an individual for the cancer to manifest.
+\item Once the exact sequence of rate-limiting events for a given cancer have orchestrated in an individual, development of that cancer is inevitable.
+\item There is a negligible time lag between all the events being executed appropriately to give rise to a cancer and the clinical or symptomatic manifestations of the cancer.
+\item Rate of a given rate-limiting event is constant and time invariant in each of the individuals in a susceptible population but different such events may have different rates.
+\end{enumerate}
+
+For the rest of the article, in order to refer to any of the assumptions, we would simply mention the assumption number in the preceding text.
+
+\vspace{1cm}
+
+Following the given assumptions, three distinct mathematical models of cancer are proposed:
+
+\begin{enumerate}
+\item Linear log-log model
+\item Convex upwards log-log model
+\item Concave upwards log-log model
+\end{enumerate} 
+
+\subsection*{Linear log-log model}
+
+The linear log-log model is given by
+
+\begin{equation}
+\ln I(t) = (r - 1) \ln t + \ln k
+\end{equation}
+
+Where \( I(t) \) is the age-specific incidence rate of cancer at age \( t \), \( r \) is the number of rate-limiting events and \( k \) is the probability of \( r \) rate-limiting events to occur in a specific order within the given unit of time \( t \).
+This form has the advantage of being linear on log-log plot where the tangent \( (r - 1) \) gives the direct measure of the number of driver mutations \( r \) required for cancer development, i.e., \( y = mx + c \), where \( y = \ln I(t) \), \( x = \ln t \), \( m = r - 1 \) and \( c = \ln k \).
+
+\subsection*{Convex upwards model}
+
+The convex upwards model is given by
+\begin{equation}
+\ln I(t) = \alpha_0 + \alpha_1 \ln t + \ln(1 - \alpha_2 t^{\alpha_3})
+\end{equation}
+where \( \alpha_0 \), \( \alpha_1 \),  \( \alpha_2 \) and \(\alpha_3\) contains the following terms for the two different assumptions
+
+\textbf{Convex upwards model from heterogeneity assumption}
+\begin{equation}
+\ln I(t) = \ln k_p + (r + p - 1) \ln t + \ln \left( 1 - \frac{k_q}{k_p} \cdot t^{q-p} \right)
+\end{equation}
+
+\textbf{Convex upwards models from age-related effect assumption}
+\begin{equation}
+\ln I(t) = \ln k + (r - 1) \ln t + \ln \left( 1 - \frac{k_d}{k} \cdot t^{d-r+1} \right)
+\end{equation}
+
+\subsection*{Concave upwards model}
+
+The concave upwards model is given by
+\begin{equation}
+\ln I(t) = \beta_0 + \beta_1 \ln t + \ln(1 + \beta_2 t^{\beta_3})
+\end{equation}
+where \( \beta_0 \), \( \beta_1 \), \( \beta_2 \) and\( \beta_3\) contains the following terms for the two different assumptions
+
+\textbf{Concave upwards model from heterogeneity assumption}
+\begin{equation}
+\ln I(t) = \ln k_p + (r + p - 1) \ln t + \ln \left( 1 + \frac{k_q}{k_p} \cdot t^{q-p}\right)
+\end{equation}
+
+\textbf{Concave upwards models from age-related effect assumption}
+\begin{equation}
+\ln I(t) = \ln k + (r - 1) \ln t + \ln \left( 1 + \frac{k_a}{k} + t^{a-r+1} \right)
+\end{equation}
+
+\section{Results}\label{sec2}
+
+\subsection{Biological interpretation from WHO molecular data}
+
+We found that for almost all the cancers fitting the standard linear model, the number of rate-limiting steps range from 3-4 on average, except non-Hodgkin lymphoma which require just one such step under appropriate conditions. This is mostly consistent with the molecular findings described in WHO Cancer “Blue Books” published by the International Agency for Research on Cancer (IARC) as well as different textbooks on cancer pathology and relevant published articles. \cite{vogelstein2002genetic}
+
+For instance, the development of bladder cancer (mainly urothelial carcinoma) requires the driver mutations of genes FGFR3 and RAS along with any one among TP53, Rb or PTEN. \cite{cazier2014wholegenome} Cancers of kidney (mostly renal cell carcinoma) appears to require VHL mutation along with two other genetic alterations that may include EGFR mutation, overexpression of genes associated with cellular adhesion molecules (e.g. E-cadherin) and matrix regulatory proteins (e.g. MMPs, bFGF, VEGF) or rarely p53.
+
+The tumors of brain and nervous system are quite a heterogeneous group, still confined to the above mentioned number of driver mutations. For example, most low grade astrocytomas seem to require mutations in BRAF, RAS and IDH or might follow a different line of progression involving TP53, PDGFR and loss of heterozygosity (LOH) at 22q or p14 promoter methylation. There is a predisposed group of NF1 mutation as well. Whereas high grade astrocytomas mostly show LOH at 17p, TP53 and PTEN mutations,  Glioblastomas on the other hand usually need LOH at 10q, EGFR amplification, p16 deletion and TP53 mutation to manifest. It is to note than only 5\% of the glioblastoma progress from low grade lesions while the rest develop de novo. In case of meningiomas, chromosome 22 deletion consistently disables at least two tumor suppressor genes, one of which is NF2 and the other is yet to be determined. The other significant alteration here is microsatellite instability which is the result of the mutation at least one DNA mismatch repair gene. Gentic studies of several other groups of nervous system tumors like neuronal and mixed neuronal-glial tumors reveal no consistent mutational pattern to date. 
+
+\par
+Cancers of esophagus show a consistent pattern of mutation in a transcription factor gene (e.g. SOX2), a cell cycle regulator gene (e.g. cyclin D1) and a tumor suppressor gene (commonly TP53) for their pathogenesis. Comparable changes also apply for the cancers of lip, oral cavity, larynx and pharynx. Nasopharyngeal carcinoma will be discussed in a separate context below. A similar repertoire as the esophageal cancers is also noted in the cancers of stomach although consisting of a different set of mutated genes (e.g. CDH1, APC etc.) along with microsatellite instability. Regarding gastric lymphomas, MLT/BCBL-10 pathway seems to play a pivotal role in molecular pathogenesis 12 which also requires 3-4 driver mutations.
+
+\par
+Colorectal cancers are considered the prototypical example to multistep carcinogenesis \cite{knudson1971mutation} involving up to ten genes and their mutations as well as microsatellite instability along the line of tumor progression. But Tomasetti et al. (2015) \cite{tomasetti2015variation} pointed out that only three driver mutations among them at a time are required to produce those carcinomas.
+
+\par
+Mutations along the Wnt pathway along with TP53 and cell cycle regulators are necessary for most of the cancers of the liver. Additionally, mutations along KRAS pathway may be important for cancers of gallbladder and biliary tree. Inactivation of p16 and TP53 along with another rate-limiting step (e.g. BRCA2 mutation) are required for the development of most pancreatic cancers.
+
+\par
+Lung cancer has a diverse set of mutations, not necessarily corresponding to its clinical or pathological subtypes. However, the latest WHO classification of lung cancer attempted to formulate a scheme to incorporate the molecular alterations relevant to therapy and prognosis. Across different strata of the scheme, there are 2-3 mutations or rate-limiting steps appear to be necessary to produce the clinical manifestation of the tumor. For instance, mutation of TP53 and Rb genes along with loss of heterozygosity at 3p seems to be a recurring theme in many cases. However, the sufficiency of those alterations is yet to be established as a universal rule.
+
+Mutation of at least one out of five genes (cyclin D1, C-MAF, FGFR3/MMSET, cyclin D3 and MAFB) seems to be a consistent finding in plasma cell myeloma which requires about three such rate limiting steps on average to manifest clinically.
+
+Like lung cancers, a sweeping generalization regarding the rate-limiting steps of skin cancers is also out of reach at the moment. However, a case-by-case analysis reveals similar recurring theme of up to three mutations. Interestingly, non-Hodgkin lymphoma , a highly heterogenous entity, appears to have lower threshold of the required number of mutations, usually up to two rate-limiting steps according to their respective subcategories which is consistent with the model presented in this article.
+
+Some of the cancers, however, do not follow the linear log-log model thus far discussed. To accommodate those entities, we have modeled generalizations assuming either of the two sets of assumptions. We have taken into account the fact that some factors may accelerate or decelerate the rate of progression of the disease with advancing age and named it age-related effect. Other assumption is based on the variation of the required number of rate-limiting steps amongst affected population due to heterogeneity of the condition under consideration. Four such entities which include cancers of nasopharynx, thyroid, leukemia and Hodgkin lymphoma, are modeled under the aforementioned generalization.
+
+Nasopharyngeal carcinoma shows up to five mutations including DN-P63, P27, cyclin D1 and BCL-2 associated with its development and manifestation which is consistent with our convexity-upwards log-log model. We also predict age-related deceleration of its carcinogenesis due to some yet undiscovered factor, possibly associated with Epstein-Barr virus (EBV) infection. Thyroid neoplasms are often associated with the mutations of RET/PTC, RAS, BRAF and PTEN which is quantitatively consistent with our model. The heterogeneity of thyroid neoplasms may account for the necessity of heterogeneity assumptions used in its generalization. Interestingly, the number of mutational steps predicted for leukemia and Hodgkin lymphoma is comparable with that of non-Hodgkin lymphoma, except for the requirement of additional generalizing assumptions required for the former pair. All three categories of those hematolymphoid neoplasms require relatively lower number of rate-limiting steps. However, heterogeneity and/or age-related acceleration of carcinogenesis may play more decisive role in leukemia and Hodgkin lymphoma according to our model.
+
+\subsubsection{Extendibility to non-neoplastic conditions}
+We also found that our model is applicable to any disease process, not only cancers, that satisfy the requirement of progression via discrete rate-limiting steps. Rheumatoid arthritis is modeled as an example of its extendibility.  Further tests on data of specific incidences of different chronic diseases will be done as future scope of this research and will further validate our mathematical model.
+
+
+\section{Tables}\label{sec5}
+
+\section*{Model validation}
+
+To determine the validity of the mathematical model, we have used \( R^2 \) and p-value of the graphs found from statistical analysis.
+
+For our linear log-log model slope, Y intercept and \( R^2 \) of the data-fitted graphs are calculated.
+ 
+\begin{table}[htbp]
+\centering
+\footnotesize % You can change this to \scriptsize if the text still does not fit
+\setlength{\extrarowheight}{2pt} % Add extra spacing for rows, adjust as needed
+\textbf{Linear Model Data}
+% \label{tab:linear_model}
+\begin{tabularx}{\textwidth}{@{} l *{9}{>{\centering\arraybackslash}X} @{}}
+\toprule
+CANCER & \multicolumn{3}{c}{MALE} & \multicolumn{3}{c}{FEMALE} & \multicolumn{3}{c}{BOTH SEXES} \\
+\cmidrule(r){2-4} \cmidrule(lr){5-7} \cmidrule(l){8-10}
+& Intercept & Slope & R\(^2\) & Intercept & Slope & R\(^2\) & Intercept & Slope & R\(^2\) \\
+\midrule
+BLADDER & -1.236 & 2.644 & 0.999 & -1.713 & 2.114 & 0.995 & -1.457 & 2.499 & 0.998 \\
+BRAIN, NERVOUS SYSTEM & 0.0295 & 1.2162 & 0.987 & -0.155 & 1.167 & 0.9843 & -0.058 & 1.194 & 0.985 \\
+COLORECTUM & 0.461 & 2.203 & 0.997 & 0.523 & 1.945 & 0.994 & 0.485 & 2.089 & 0.996 \\
+GALLBLADDER & -2.290 & 2.415 & 0.998 & -1.491 & 2.042 & 0.996 & -1.829 & 2.197 & 0.998 \\
+KIDNEY & -1.230 & 2.234 & 0.937 & -1.323 & 1.884 & 0.921 & -1.274 & 2.094 & 0.932 \\
+LARYNX & -1.204 & 2.2914 & 0.973 & -2.311 & 1.677 & 0.996 & -1.586 & 2.172 & 0.981 \\
+LIP, ORAL CAVITY & -1.745 & 2.54 & 0.956 & -1.972 & 2.193 & 0.981 & -1.839 & 2.405 & 0.966 \\
+LIVER & -1.079 & 2.713 & 0.963 & -2.080 & 2.642 & 0.987 & -1.449 & 2.690 & 0.970 \\
+LUNG & 0.1393 & 2.693 & 0.993 & -0.129 & 2.319 & 0.992 & 0.006 & 2.565 & 0.993 \\
+MELANOMA OF SKIN & -0.370 & 1.598 & 0.991 & 0.262 & 1.078 & 0.990 & -0.035 & 1.336 & 0.992 \\
+MULTIPLE MYELOMA & -2.159 & 2.304 & 0.9964 & -2.257 & 2.171 & 0.999 & -2.205 & 2.243 & 0.998 \\
+NON-HODGKIN LYMPHOMA & -0.187 & 1.875 & 0.9796 & -0.578 & 1.625 & 0.9866 & -0.362 & 1.6192 & 0.9827 \\
+OESOPHAGUS & -0.621 & 2.4041 & 0.9858 & -1.482 & 2.2434 & 0.9964 & -0.957 & 2.3579 & 0.9894 \\
+PANCREAS & -1.438 & 2.476 & 0.996 & -1.663 & 2.37 & 0.999 & -1.536 & 2.427 & 0.999 \\
+STOMACH & 0.1279 & 2.3212 & 0.9912 & 0.0456 & 1.8432 & 0.9897 & 0.0802 & 2.1435 & 0.9924 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+
+
+\textbf{Convex Upwards Model Data}
+\begin{tabular}{llccccccccc}
+\toprule
+SEX & CANCER & \(\alpha_0\) & \(\alpha_1\) & \(\alpha_2\) & \(\alpha_3\) & \(R^2\) & \(k_p\) & \(k_q\) & \(k_r\) & \(k_s\) \\
+\midrule
+MALE & NASOPHARYNX & -0.54 & 2.797 & 0.73 & 0.14 & 0.9856 & 0.583 & 0.425 & 0.583 & 0.425 \\
+MALE & OTHER PHARYNX & -0.485 & 2.844 & 0.47 & 0.33 & 0.9923 & 0.616 & 0.763 & 0.616 & 0.763 \\
+FEMALE & NASOPHARYNX & -1.36 & 2.797 & 0.73 & 0.14 & 0.9756 & 0.257 & 0.187 & 0.257 & 0.187 \\
+FEMALE & OTHER PHARYNX & -0.642 & 2.5295 & 0.77 & 0.11 & 0.9838 & 0.526 & 1.464 & 0.526 & 1.464 \\
+BOTH SEXES & NASOPHARYNX & -0.845 & 2.797 & 0.73 & 0.14 & 0.9847 & 0.429 & 0.313 & 0.429 & 0.313 \\
+BOTH SEXES & OTHER PHARYNX & -0.277 & 2.814 & 0.69 & 0.16 & 0.9916 & 0.758 & 0.910 & 0.758 & 0.910 \\
+\bottomrule
+\end{tabular}
+
+\vspace{1em} % Add some vertical space between the tables
+
+\textbf{Concave Upwards Model Data}
+\begin{tabular}{llccccccccc}
+\toprule
+SEX & CANCER & \(\beta_0\) & \(\beta_1\) & \(\beta_2\) & \(\beta_3\) & \(R^2\) & \(k_p\) & \(k_q\) & \(k_r\) & \(k_s\) \\
+\midrule
+MALE & HODGKIN LYMPHOMA & -0.036 & 0.1405 & 0.007 & 2.1 & 0.9956 & 0.964 & 0.007 & 0.964 & 0.007 \\
+MALE & LEUKAEMIA & 1.15 & -0.8291 & 0.09 & 2.75 & 0.9941 & 3.158 & 0.284 & 3.158 & 0.284 \\
+FEMALE & HODGKIN LYMPHOMA & 0.7843 & -1.6493 & 0.039 & 2.9 & 0.992 & 2.191 & 0.085 & 2.191 & 0.085 \\
+FEMALE & LEUKAEMIA & 0.8742 & -0.8291 & 0.11 & 2.75 & 0.9925 & 2.397 & 0.264 & 2.397 & 0.264 \\
+BOTH SEXES & HODGKIN LYMPHOMA & 0.1634 & -0.3739 & 0.025 & 2.1 & 0.9863 & 1.178 & 0.029 & 1.178 & 0.029 \\
+BOTH SEXES & LEUKAEMIA & 0.6742 & -0.8291 & 0.11 & 2.75 & 0.9925 & 2.397 & 0.264 & 2.397 & 0.264 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{20em} 
+
+\section{Methods}\label{sec11}
+
+\subsection{Data}
+We have tested our model on 21 categories of cancers listed in the GLOBOCAN database \cite{globocan}, of 124 selected populations from 108 cancer registries published in CI5 (Cancer Incidence in Five Continents) of the age groups: 0-14, 15-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65-69. The registry contained the date for 14,067,894 people. The findings were correlated with the molecular data given in the latest editions of World Health Organization (WHO) reference series on tumors published by the International Agency for Research on Cancer (IARC).
+\subsection{Statistical Analysis}
+Analysis was performed using R \cite{rproject2022} and graphs were made using \texttt{ggplot} of R. For the linear log-log model a linear regression algorithm was used on the data collected from GLOBOCAN repository. For the non-linear (convex upwards and concave upwards model) a simple hybrid algorithm was used: Linear regression algorithm for the distinct linear part of the data, and an additional algebraic calculation for the additional term which explains the upwards curve in the later stages of the age groups. The related files has been uploaded to a Github Repository. \cite{MathematicalCancer}
+
+\section{Discussion}\label{sec12}
+
+\subsection{Significance of different quantities of the Standard Model}
+
+\subsection{Effect of changing the scale of  t}
+
+Since \( k_n \) denotes the probability per unit of time, the scale for time affects its value. For instance, if the \( t \) is scaled to \( w \) times, i.e., two adjacent time intervals differ by \( w \) units, then every \( k_n \) will need to be replaced by \( \frac{k_n}{w} \) and the right-hand side of the
+
+\begin{equation}
+  K = K_{\text{ordered}} k_r dt = k t^{r-1} dt   
+\end{equation}
+
+
+would have an extra `constant' term \( w^{r-1} \) at its denominator. Subsequent steps of the calculation would show that this change would only affect the term \( \ln k \) which is the intercept of the final log-log linear form,
+\begin{equation}
+   \ln(t) = (r - 1) \ln t + \ln k 
+\end{equation}
+
+
+but does not affect the slope \( (r - 1) \). So, for the sake of simplicity we would use unity as the log scale for time. Hence, age classes 1, 2, 3 are used in all of our graphs. If any cancer has zero incidence at the initial age class (0-14 years) for both male and female then the subsequent age class is designated as class 1 and consecutively onwards. This is for avoiding structural zeroes in log-log plot since logarithm of zero is undefined.
+
+\subsection{Effect of male-to-female ratio of age specific incidence rate on slope}
+For reasons explained later, almost all of the cancers show two interesting features: firstly, the three linear plots (male, female and both sexes) for each cancer have somewhat unequal slopes, and secondly, the linear plot for both sexes of a given cancer shows a slope which has a value that is within the range of the slopes obtained from the separate linear plots for male and female population of the same cancer. For example, in case of cancers of brain and nervous system, the best-fit (\( R^2 = 0.98 \)) linear plot gives 1.16 and 1.21 as slopes for female and male, respectively, while the plot for both sexes has a slope of 1.19.
+
+Let us explore the second feature first. It is tempting to assume that this happens simply because of the fact that, for a given age class of a cancer, the age specific incidence rate of both sex (\( I_{\text{m}} \)) group is by definition equal to the arithmetic mean of the rates of the male (\( I_{\text{m}} \)) and the female (\( I_{\text{f}} \)) groups,
+
+\begin{equation}
+    I_{\text{m}} = \frac{I_{\text{f}} + I_{\text{m}}}{2} 
+\end{equation}
+
+
+But the actual reason is a bit more non-trivial.
+
+\textbf{Slope of the female line,}
+
+\begin{equation}
+    S_{\text{f}} = \frac{\ln I_{\text{f2}} - \ln I_{\text{f1}}}{\Delta \ln t} = \frac{\ln I_{\text{f2}} / I_{\text{f1}}}{\Delta \ln t}
+\end{equation}
+ 
+
+where, (\( \ln t_1, \ln I_{\text{f1}} \)) and (\( \ln t_2, \ln I_{\text{f2}} \)) are two points on the line and \( \Delta \ln t = \ln t_2 - \ln t_1 > 0 \).
+
+Similarly, \textbf{Slope of the male line} over the same abscissae,
+\begin{equation}
+     S_{\text{m}} = \frac{\ln I_{\text{m2}} - \ln I_{\text{m1}}}{\Delta \ln t} = \frac{\ln I_{\text{m2}} / I_{\text{m1}}}{\Delta \ln t} 
+\end{equation}
+
+
+And the line for both sexes likewise has the slope,
+
+\begin{equation}
+     S_{\text{fm}} = \frac{\ln I_{\text{fm2}} - \ln I_{\text{fm1}}}{\Delta \ln t} 
+\end{equation}
+
+The above equation can be rewritten as,
+\begingroup
+\large
+\hspace{-6em}
+\begin{equation}
+   S_{fm} = \frac{\ln(\frac{I_{f2} + I_{m2}}{2}) - \ln(\frac{I_{f1} + I_{m1}}{2})}{\Delta \ln t} = \frac{\ln(\frac{I_{f2} + I_{m2}}{I_{f1} + I_{m1}})}{\Delta \ln t}
+\end{equation}
+\endgroup
+
+\vspace{1cm}
+\begin{equation}
+     S_{\text{fm}} = S_{\text{f}} + \frac{\ln \left( \frac{1 + \frac{I_{\text{m2}}}{I_{\text{f2}}}}{1 + \frac{I_{\text{m1}}}{I_{\text{f1}}}} \right)}{\Delta \ln t} 
+\end{equation}
+
+\vspace{0.5cm}
+
+
+\begin{equation}
+    S_{\text{fm}} = S_{\text{m}} + \frac{\ln \left( \frac{1 + \frac{I_{\text{f2}}}{I_{\text{m2}}}}{1 + \frac{I_{\text{f1}}}{I_{\text{m1}}}} \right)}{\Delta \ln t}
+\end{equation}
+
+\vspace{0.5cm}
+
+
+Let, \( I_{\text{f}} < I_{\text{m}} \). Then the difference between \( I_{\text{m}} \) and \( I_{\text{f}} \) would be greater for higher values of \( t \) than its lower values. Therefore, \(\frac{I_{m2}}{I_{f2}} > \frac{I_{m1}}{I_{f1}}\) and thus, the second term on right hand side of Equation 15 must be positive, ensuring \( S_{\text{fm}} > S_{\text{f}} \). By similar deduction from Equation 16, \( S_{\text{fm}} < S_{\text{m}} \) is also guaranteed. So, \( I_{\text{f}} < I_{\text{m}} \) implies \( S_{\text{m}} > S_{\text{fm}} > S_{\text{f}} \). Conversely, \( I_{\text{f}} > I_{\text{m}} \) implies \( S_{\text{m}} < S_{\text{fm}} < S_{\text{f}} \). Both the scenarios are consistent with the aforementioned second feature of the plots. And if \( I_{\text{f}} = I_{\text{m}} \) then the second terms of both Equation 15 and Equation 16 become zero and thus, \( S_{\text{m}} = S_{\text{m}} = S_{\text{f}} \), which is not observed in any of our plots due to the persistent inequality of the incidence rates between sexes at all instances; without exception.
+
+\section{Effect of the rate of limiting events on slope and intercept}
+
+In the previous section we explored why the slope of the both-sexes plot happens to be intermediate between the slopes of the plots for male and female drawn separately. Now we will look into the possible explanations for the inequality of the slopes for male and female in the first place. Beyond the trivial reasons like experimental error, there might be fundamental biological attributes responsible for the observed difference. One of the possibilities is the violation of assumption 7 where rate of any or few or all of the rate-limiting events is a function of time. If the rate of the \(n\)-th mutation per unit of time (\(k_n\)) is exponentially proportionate to time at its \(h\)-th power (\(t^h\)) then
+
+\begin{equation}
+     K = K_{\text{ordered}} k_r dt = kt^{r-1}dt 
+\end{equation}
+
+will have an extra term \(t^h\) multiplied to it (\(h \in \mathbb{R}\)), eventually rendering
+
+\begin{equation}
+    ln(t) = (r - 1) \ln t + \ln k
+\end{equation}
+
+\begin{equation}
+    ln(t) = (h + r - 1) \ln t + \ln k 
+\end{equation}
+
+which will be indistinguishable from the Standard Model when the coefficients are numerical as in a real plot, but must be interpreted differently because the slope (\(h + r - 1\)) no longer denotes the number of rate-limiting steps (\(t\)) alone. The problem is, just from the linear plot-fitting exercise alone, one cannot be certain if the slope equals to (\(h + r - 1\)) or just (\(r - 1\)). But from the molecular data on tumor progression, two inferences can be incorporated as extended assumptions when assumption 7 does not hold:
+
+\begin{itemize}
+\item[8.] Sex-associated difference in the slopes for a given cancer may be attributed to different values of the exponent of the aforementioned exponential mutation rate between sexes and not to the possibility of having different number of rate-limiting events for the same cancer in males and females.
+\item[9.] Assumption 8 may be repurposed and incorporated to quantify geographical and/or ethnic as well as environmental and lifestyle-related differences of cancer progression.
+\end{itemize}
+
+
+ 
+
+% \section{Conclusion}\label{sec13}
+
+\backmatter
+
+% \bmhead{Supplementary information}
+
+
+% \bmhead{Acknowledgments}
+
+
+\section*{Declarations}
+
+\subsection{Conflict of interest/Competing interests}
+
+The authors have no conflict of interest to report.
+
+% Some journals require declarations to be submitted in a standardised format. Please check the Instructions for Authors of the journal to which you are submitting to see if you need to complete this section. If yes, your manuscript must contain the following sections under the heading `Declarations':
+
+% \begin{itemize}
+% \item Funding
+% \item Conflict of interest/Competing interests (check journal-specific guidelines for which heading to use)
+% \item Ethics approval 
+% \item Consent to participate
+% \item Consent for publication
+% \item Availability of data and materials
+\subsection{Code availability}
+All data regarding the paper can be found at \cite{MathematicalCancer}
+% \item Authors' contributions
+% \end{itemize}
+
+% \noindent
+% If any of the sections are not relevant to your manuscript, please include the heading and write `Not applicable' for that section. 
+
+%%===================================================%%
+%% For presentation purpose, we have included        %%
+%% \bigskip command. please ignore this.             %%
+%%===================================================%%
+\bigskip
+% \begin{flushleft}%
+% % Editorial Policies for:
+
+% % \bigskip\noindent
+% % Springer journals and proceedings: \url{https://www.springer.com/gp/editorial-policies}
+
+% % \bigskip\noindent
+% % Nature Portfolio journals: \url{https://www.nature.com/nature-research/editorial-policies}
+
+% % \bigskip\noindent
+% % \textit{Scientific Reports}: \url{https://www.nature.com/srep/journal-policies/editorial-policies}
+
+% % \bigskip\noindent
+% % BMC journals: \url{https://www.biomedcentral.com/getpublished/editorial-policies}
+% % \end{flushleft}
+
+% % \begin{appendices}
+
+\section{Supplementary Information}\label{secA1}
+
+\subsection{Derivation of the standard (linear) model}
+
+Standard model of multistep carcinogenesis refers to the mathematical as well as statistical framework which allows us to simulate, test and predict the number of rate-limiting steps for a given cancer in order to gain mechanistic insight into carcinogenesis through communication between epidemiological and molecular data. We will derive the standard model in the following steps.
+
+\begin{enumerate}
+    \item Derivation of the probability of a given number of sequential rate-limiting events to occur within a given duration of time.
+    \item Derivation of the probability of \( r \)-th rate-limiting events to occur in an infinitesimal time interval after \( r - 1 \) such events have already occurred.
+    \item Evaluation of the function that takes time as input and gives probability as output. Here, the probability means the chance that an individual of the age group denoted by the time does not manifest a cancer yet, all other quantities being constant.
+    \item Derivation of the formula for age specific incidence rate of cancer.
+\end{enumerate}
+
+\textbf{Step 1}
+
+If \( r - 1 \) rate-limiting events occur with \( k_1, k_2, \ldots, k_{r-1} \) probability per unit of time then the probability of each of those occurring in course of time \( t \) would be \( k_1t, k_2t, \ldots, k_{r-1}t \), respectively, provided that the values of \( k_1, k_2, \ldots, k_{r-1} \) are small enough to allow the probabilities \( k_1t, k_2t, \ldots, k_{r-1}t \) to scale for a value of \( t \) large enough to accommodate typical average human lifespan (Assumption 2). The probability of \( r - 1 \) rate-limiting events to occur in any order during a period of \( t \) would thus be,
+
+\[ K_{\text{unordered}} = (k_1t) (k_2t) \ldots (k_{r-1}t) = (k_1k_2\ldots k_{r-1})t^{r-1} \quad \text{... Equation 1} \]
+
+Since the sequence of mutation has to be ordered, we are interested in the probability of only one out of \( (r - 1)! \) possible arrangements of rate-limiting event (Assumption 3). Therefore the probability of \( r - 1 \) mutations to occur in a given order during a period of \( t \) would be,
+
+\[ K_{\text{ordered}} = \frac{K_{\text{unordered}}}{(r - 1)!} = \frac{(k_1k_2\ldots k_{r-1})t^{r-1}}{(r - 1)!} \quad \text{... Equation 2} \]
+
+\textbf{Step 2}
+
+If the \( r \)-th step, the final rate-limiting event of the impending doom occurs with a probability \( k \), per unit of time within a short interval \( (t, t + dt) \) then the actual probability of that event would be \( k \cdot dt \).
+
+Let the aggregated ordered rate of occurrence of events per unit of time or the probability of all \( r \) events to occur in a specific order within the given unit of time,
+
+\[ k = \frac{k_1k_2\ldots k_{r-1}k_{r}}{(r - 1)!} \quad \text{... Equation 3} \]
+
+The total probability of \( (r - 1) \) rate-limiting events to occur in a given order during \( t \) followed by the occurrence of \( r \)-th event during \( dt \) would thus be,
+
+\[ K = K_{\text{ordered}} k_r dt = \left( \frac{k_1k_2\ldots k_{r-1}\cdot t^{r-1} }{(r - 1)!} \right) k_{r} \cdot dt = k \cdot t^{r-1} \cdot dt \quad \text{... Equation 4} \]
+
+\textbf{Step 3}
+
+Let \( P(t) \) be the probability that an individual of age \( t \) has not manifested a given type of cancer yet. Then the total probability of randomly choosing such an individual who eventually develops cancer after a short interval of \( dt \) would be,
+
+\[ KP(t) = P(t) k \cdot t^{r-1} \cdot dt \quad \text{... Equation 5} \]
+
+This quantity is equivalent to the frequency of individuals of age \( t \) developing cancer after they have reached that age and before they reach the age of \( (t + 1) \), which is by definition, age specific incidence rate at age \( t \). Are we done then? Unfortunately, no! For the sake of mathematical rigor, we have to get rid of the \( dt \) term. Besides, in order to obtain a model-worthy form of the formula for age specific incidence rate we have to play a few more mathematical tricks.
+
+Now, let us take random individuals from all possible age groups from 0 to \( t \) and calculate their total probability of developing cancer after a short while of \( dt \),
+
+\[
+\sum_0^t KP(t) \approx \int_0^t P(t) k t^{r-1} \, dt \quad \text{... Equation 6}
+\]
+
+Please note that their individual probabilities are disjoint events. The integral can also be thought of as a cumulative frequency of individuals between ages 0 and \( t \) who developed cancer while remaining at their respective age groups. If a population begins with a frequency (or probability) of \( P(0) \) which denotes the individuals at age 0 without the manifestations of cancer and then proceeds up to age \( t \) while ‘losing’ individuals who succumb to cancer at each successive age groups then,
+
+\[
+P(t) = P(0) - \int_0^t P(t) k \, t^{r-1} \, dt \quad \text{... Equation 7}
+\]
+
+Since \( P(0) \) is a constant term by virtue of being the 0\(^{th}\) term of a function, differentiating both sides with respect to \( dt \) gives us,
+
+\[
+\frac{d}{dt} P(t) = 0 - P(t) k \, t^{r-1} \Rightarrow \frac{dP(t)}{P(t)} = - k \, t^{r-1} \, dt
+\]
+
+Integrating both sides,
+
+\[
+\ln P(t) = -\frac{k \, t^r}{r} + C_0 \Rightarrow P(t) = e^{-\frac{k \, t^r}{r + C_0}} = C_1 e^{-\frac{k \, t^r}{r}}
+\]
+
+\[ \text{[where \( C_0, C_1 \) are constants; let \( C_1 = e^{C_0} \)]} \]
+
+Since at \( t = 0 \), \( P(0) = C_1 \),
+
+\[
+P(t) = P(0) e^{-\frac{k \, t^r}{r}} \quad \text{... Equation 8}
+\]
+
+\textbf{Step 4}
+
+\( P(t) \) is a cumulative distribution function (CDF) that expresses the total probability of not developing cancer in the age range of 0 to \( t \). It can be thought of as a survival function is a sense that, it denotes the portion of the population at age \( t \) that has ‘survived’ by not developing cancer yet. More rigorously, if we take a CDF, \( F(t) \) to indicate the probability of developing cancer in the age range of 0 to \( t \) then by definition of survival function, 
+
+\[ P(t) = 1 - F(t) \quad \text{... Equation 9} \]
+
+We want to determine age specific incidence rate, the probability of developing cancer at any given short interval \( (t, t + dt) \) which is nothing but the hazard function of \( F(t) \), since hazard function is defined as the probability of an event to occur in a short interval. Since the probability density function (PDF) of \( F(t) \) is given by the derivative of \( F(t) \) with respect to \( dt \) and hazard function is the ratio of PDF to survival function, age specific incidence rate at age \( t \) would be,
+
+\[ I(t) =  \frac{\frac{d}{dt} F(t)}{1 - F(t)}  =   \frac{\frac{d}{dt}(1 - P(t))}{P(t)}  = \frac{P(0) k t^{r-1} e^{- k t^r / r}}{P(0) e^{- k t^r / r}} = k t^{r-1} \quad \text{... Equation 10} \]
+
+This nice and simple equation can be reframed using logarithm as,
+
+\[ \ln I(t) = (r - 1) \ln t + \ln k \quad \text{... Equation 11} \]
+
+\subsection{Derivation of the non-linear models from heterogeneity assumption}
+
+If we replace \( k = k_p t^p + k_q t^q \) in Equation 4 with the following assumption, \( k_p \) and \( k_q \) are the respective probabilities of a rate-limiting event to occur with the rate \( t^p \) and \( t^q \) where \( p \) and \( q \) are real numbers, then the equation becomes,
+
+\[ K = (k_p t^p + k_q t^q) t^{r-1} dt = k_p t^{r+p-1} dt + k_q t^{r+q-1} dt \quad \text{... Equation 12} \]
+
+The rationale behind this assumption is the diversity of factors and mechanisms underlying the heterogeneous groups of disorders clumped under a single label, e.g. leukemia. The simplest form that could accommodate such a situation is a two-factor model \cite{knudson1981mutation} \cite{moolgavkar1979twoevent} which is incorporated in the assumption above. If we follow through the calculations according to the derivation of the standard model, then this new assumption ultimately leads to,
+
+\[ I(t) = k_p t^{r+p-1} + k_q t^{r+q-1} = k_p t^{r+p-1} \left( 1 + \frac{k_q}{k_p} t^{q-p} \right) \quad \text{... Equation 13} \]
+
+Taking log on each side,
+
+\[ \ln I(t) = \ln k_p + (r + p - 1) \ln t + \ln \left( 1 + \frac{k_q}{k_p} t^{q-p} \right) \quad \text{... Equation 14} \]
+
+This is the general form of the equation for log-log plots with upwards concavity. If instead, the initial two-factor term (Equation 12) was assumed to be \( k = k_p t^p - k_q t^q \) then the ultimate log-log form would become,
+
+\[ \ln I(t) = \ln k_p + (r + p - 1) \ln t + \ln \left( 1 - \frac{k_q}{k_p} t^{q-p} \right) \quad \text{... Equation 15} \]
+
+This is the general form of the equation for log-log plots with upwards convexity. An additional assumption of \( k_q \leq k_p \) would allow for \( 0 \leq \frac{k_q}{k_p} \leq 1 \) to be true while validating the models using real world data. This would help normalize the dataset without compromising the rigor of the method. Also, putting \( k_q = 0 \) regresses the equations back the standard linear form.
+
+\subsection{Derivation of the non-linear models from age-related effect assumption}
+
+If we take into consideration that some factors accelerates or decelerates the rate of tumor progression with increasing age then we could formulate an alternate set of assumptions for non-linear models.
+
+If we add a factor \( k_a t^a \) to account for the age-related acceleration in Equation 4 with the following assumption, \( k_a \) is the probability of a rate-limiting event to occur with the rate \( t^a \) a is a real number, then the equation becomes,
+
+\[ K = k t^{r-1} dt + k_a t^{a} dt \quad \text{... Equation 16} \]
+
+If we follow through the calculations according to the derivation of the standard model, then this new assumption ultimately leads to,
+
+\[ I(t) = k t^{r-1} + k_a t^{a} = k t^{r-1} \left( 1 + \frac{k_a}{k} t^{a-r+1} \right) \quad \text{... Equation 17} \]
+
+Taking log on each side,
+
+\[ \ln I(t) = \ln k + (r - 1) \ln t + \ln \left( 1 + \frac{k_a}{k} t^{a-r+1} \right) \quad \text{... Equation 18} \]
+
+This is the general form of the equation for log-log plots with upwards concavity. Similarly, subtracting an age-related deceleration factor \( k_d t^d \) from Equation 4 would ultimately result in,
+
+\[ \ln I(t) = \ln k + (r - 1) \ln t + \ln \left( 1 - \frac{k_d}{k} t^{d-r+1} \right) \quad \text{... Equation 19} \]
+
+This is the general form of the equation for log-log plots with upwards convexity. Since the terms \( k \), \( k_a \), and \( k_d \) are probabilities, the fractional terms inside the third log term of Equation 18 and Equation 19 would always be within 0 and 1, inclusive. Also, if there is no age-related acceleration (\( k_a = 0 \)) or deceleration (\( k_d = 0 \)) or if they are small enough to be ignored then the non-linear form regresses to the standard linear form.
+
+%%=============================================%%
+%% For submissions to Nature Portfolio Journals %%
+%% please use the heading ``Extended Data''.   %%
+%%=============================================%%
+
+%%=============================================================%%
+%% Sample for another appendix section			       %%
+%%=============================================================%%
+
+% \section{Figures}\label{secA2}%
+% Appendices may be used for helpful, supporting or essential material that would otherwise 
+% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+% tables and equations etc.
+
+% \end{appendices}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+\bibliography{references}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+
+\end{document}
